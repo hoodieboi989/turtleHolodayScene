@@ -1,0 +1,118 @@
+import turtle
+import random
+
+def Ghost_left(t,x,y):
+    t.teleport(x,y)
+    t.pencolor("black")
+    t.left(90)
+    t.forward(70)
+    t.circle(30, 180)
+    t.forward(70)
+    t.left(135)
+    for i in range(4):
+        t.forward(10)
+        t.right(90)
+        t.forward(10)
+        t.left(90)
+    t.penup()
+    t.left(45)
+    t.forward(70)
+    t.left(90) 
+    t.forward(40)
+    t.right(60)
+    t.pendown()
+    t.begin_fill()
+    for i in range(3):
+        t.forward(10)
+        t.left(120)
+    t.end_fill()
+    t.right(120)
+
+
+def Ghost_right(t,x,y):
+    t.teleport(x,y)
+    t.pencolor("black")
+    t.left(90)
+    t.forward(70)
+    t.circle(30, 180)
+    t.forward(70)
+    t.left(135)
+    for i in range(4):
+        t.forward(10)
+        t.right(90)
+        t.forward(10)
+        t.left(90)
+    t.penup()
+    t.left(45)
+    t.forward(70)
+    t.left(90) 
+    t.forward(8)
+    t.right(60)
+    t.pendown()
+    t.begin_fill()
+    for i in range(3):
+        t.forward(10)
+        t.left(120)
+    t.end_fill()
+    t.right(120)
+
+
+def pumpkin(t,x,y):
+    t.up()
+    t.color("green")
+    t.teleport(x,y)
+    t.forward(20)
+    t.left(90)
+    t.forward(60)
+    t.left(90)
+    t.down()
+    t.right(45)
+    t.begin_fill()
+    for i in range(2):
+        t.forward(15)
+        t.left(90)
+        t.forward(5)
+        t.left(90)
+    t.end_fill()
+    t.left(45)
+    t.right(180)
+
+    t.teleport(x,y)
+    t.left(45)
+    t.color("orange")
+    for i in range(4):
+        t.begin_fill()
+        for i in range(2):
+            t.circle(40,90)
+            t.circle(10,90)
+        t.end_fill()
+        t.penup()
+        t.right(45)
+        t.forward(15)
+        t.left(45)
+        t.pendown()
+    t.right(45)
+    
+if __name__ == "__main__":
+    guy = turtle.Turtle()
+    guy.shape("turtle")
+    guy.speed(0)
+
+    for i in range(67):
+        x = random.randint(-400,400)
+        y = random.randint(-400,400)
+
+        pumpkin(guy,x,y)
+
+    for i in range(6):
+        x = random.randint(-400,400)
+        y = random.randint(-400,400)
+
+        Ghost_left(guy,x,y)
+
+    for i in range(4):
+        x = random.randint(-400,400)
+        y = random.randint(-400,400)
+
+        Ghost_right(guy,x,y)
+    turtle.done()
